@@ -49,3 +49,4 @@ Content-Type: application/json; charset=utf-8
 ## Swagger UI
 <img width="1345" height="840" alt="image" src="https://github.com/user-attachments/assets/f4d577fd-24c6-4cb9-aef6-09739e69f496" />
 
+![alt text](image.png)
