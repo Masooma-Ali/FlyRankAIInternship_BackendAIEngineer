@@ -1,4 +1,4 @@
-// stage 0
+//----------------------------- STAGE 0 ------------------------------
 /*
 const express = require("express");
 const app = express();
@@ -14,8 +14,8 @@ app.listen(PORT, () => {
 */
 
 
-//STAGE 1
-// server.js
+//----------------------------- STAGE 1 ------------------------------
+/*
 const express = require("express");
 const app = express();
 const PORT = 3000;
@@ -35,3 +35,51 @@ app.get("/health", (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
 });
+*/
+
+//----------------------------- STAGE 2 ------------------------------
+
+const express = require("express");
+const app = express();
+const PORT = 3000;
+
+let tasks = [
+  { id: 1, title: "Buy milk", done: false },
+  { id: 2, title: "Finish FYP report", done: false },
+  { id: 3, title: "Walk the dog", done: true },
+];
+
+app.get("/", (req, res) => {
+  res.json({
+    name: "Task API",
+    version: "1.0",
+    endpoints: ["/tasks"],
+  });
+});
+
+app.get("/health", (req, res) => {
+  res.json({ status: "ok" });
+});
+
+app.get("/tasks", (req, res) => {
+  res.json(tasks);
+});
+
+app.get("/tasks/:id", (req, res) => {
+  const id = Number(req.params.id);
+  const task = tasks.find((t) => t.id === id);
+
+  if (!task) {
+    return res.status(404).json({ error: `Task ${id} not found` });
+  }
+  res.json(task);
+});
+
+app.listen(PORT, () => {
+  console.log(`Server running at http://localhost:${PORT}`);
+});
+
+
+//----------------------------- STAGE 3 ------------------------------
+//----------------------------- STAGE 4 ------------------------------
+//----------------------------- STAGE 5 ------------------------------
